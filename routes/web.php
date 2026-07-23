@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', fn() => view('index'));
+Route::get('/index', [PostController::class, 'index'])->name("posts.index");
