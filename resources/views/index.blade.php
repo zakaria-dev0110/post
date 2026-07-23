@@ -1,18 +1,30 @@
 @extends("layouts.app")
 
-@section("h1")
-    <h1 class="text-center pt-4">Welcome to Post Blog</h1>
-@endsection
-
 @section("section1")
     <div class="row text-center">
-        <p class="fs-2">Write Your Post Now</p><br>
-        <div class="col text-center">
-            <button type="button" class="btn btn-primary">Show</button>
-            <button type="button" class="btn btn-success">Create</button>
-
-        </div>
+        <table class="table">
+            <thead class="text-center align-middle">
+                <tr>
+                <th class="py-3" scope="col">#</th>
+                <th class="py-3" scope="col">Name</th>
+                <th class="py-3" scope="col">Post</th>
+                <th class="py-3" scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center align-middle">
+                <th class="py-3" scope="row">1</th>
+                <td class="py-3">Mark</td>
+                <td class="py-3">This is my post on Post Blog</td>
+                <td class="py-3">
+                    <div class="col text-center">
+                        <button type="button" class="btn btn-primary m-1">Show</button>
+                        <button type="button" class="btn btn-success m-1">Create</button>
+                        <button type="button" class="btn btn-danger m-1">Delete</button>
+                    </div>
+                </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-        
-        
 @endsection

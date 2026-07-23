@@ -10,7 +10,6 @@
         <div class="col text-center">
             <button type="button" class="btn btn-primary">Show</button>
             <button type="button" class="btn btn-success">Create</button>
-
         </div>
     </div>
         
