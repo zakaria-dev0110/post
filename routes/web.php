@@ -8,3 +8,5 @@ Route::get('/', function () {
 });
 
 Route::get('/index', [PostController::class, 'index'])->name("posts.index");
+
+Route::get('/posts/{id}', fn()=> view('show'));
