@@ -8,7 +8,7 @@
     <div class="row text-center">
         <p class="fs-2">Write Your Post Now</p><br>
         <div class="col text-center">
-            <button type="button" class="btn btn-primary">Show</button>
+            <a href="{{ route("posts.index") }}" type="button" class="btn btn-primary">Show</a>
             <button type="button" class="btn btn-success">Create</button>
         </div>
     </div>

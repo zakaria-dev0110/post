@@ -10,7 +10,7 @@
         </div>
         <div class="col text-center m-4">
             <button type="submit" class="btn btn-primary m-1">Update</button>
-            <button type="button" class="btn btn-secondary m-1">Back</button>
+            <a href="{{ route("posts.index") }}" type="button" class="btn btn-secondary m-1">Back</a>
         </div>
     </form>
 @endsection

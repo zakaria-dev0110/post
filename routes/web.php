@@ -5,7 +5,7 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name("posts.home");
 
 Route::get('/index', [PostController::class, 'index'])->name("posts.index");
 

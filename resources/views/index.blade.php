@@ -19,7 +19,7 @@
                 <td class="py-3">{{$post["Post"]}}</td>
                 <td class="py-3">
                     <div class="col text-center">
-                        <button type="button" class="btn btn-primary m-1">Show</button>
+                        <a href="{{ route("posts.show", $post["id"]) }}" type="button" class="btn btn-primary m-1">Show</a>
                         <button type="button" class="btn btn-success m-1">Update</button>
                         <button type="button" class="btn btn-danger m-1">Delete</button>
                     </div>
