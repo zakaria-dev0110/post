@@ -1,7 +1,8 @@
 @extends("layouts.app")
 
 @section("section1")
-    <form>
+    <form method="POST" action="{{ route("posts.update", $post["id"]) }}">
+        @csrf
         <div class="col text-center m-4">
             <input type="text" name="name" value={{ $post["Name"] }}>
         </div>

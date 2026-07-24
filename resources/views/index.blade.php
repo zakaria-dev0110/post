@@ -20,7 +20,6 @@
                 <td class="py-3">
                     <div class="col text-center">
                         <a href="{{ route("posts.show", $post["id"]) }}" type="button" class="btn btn-primary m-1">Show</a>
-                        <button type="button" class="btn btn-success m-1">Update</button>
                         <button type="button" class="btn btn-danger m-1">Delete</button>
                     </div>
                 </td>

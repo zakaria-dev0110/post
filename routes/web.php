@@ -10,3 +10,5 @@ Route::get('/', function () {
 Route::get('/index', [PostController::class, 'index'])->name("posts.index");
 
 Route::get('/posts/{id}', [PostController::class, 'show'])->name("posts.show");
+
+Route::post('/posts/{id}', [PostController::class, 'update'])->name("posts.update");
