@@ -6,26 +6,36 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    private $DBposts = array(
-            array (
-                "id" => "0",
-                "Name" => "Mark",
-                "Post" => "This is my post on Post Blog from Database"
-            )
-        );
+    public function __construct(){
+        session_start();
+        if (!isset($_SESSION['DBposts'])) {
+            $_SESSION['DBposts'] = array();
+        }
+    }
+    
     public function index() {
-        return view('index', ["posts" => $this->DBposts]);
+        if (count($_SESSION['DBposts']) == 0) {
+            array_push($_SESSION['DBposts'], array(
+                "id" => "0",
+                "Name" => "John",
+                "Post" => "Hello"
+            ));
+        }
+        
+        return view('index', ["posts" => $_SESSION['DBposts']]);
     }
 
     public function show($id) {
-        $post = array_filter($this->DBposts, fn(array $i) => $i["id"] == $id)[$id];
+        $post = array_filter($_SESSION['DBposts'], fn(array $i) => $i["id"] == $id)[$id];
         return view('show', ["post" => $post]);
     }
 
     public function update($id){
-        $post = request()->all();
-        $DBposts[$id]["Name"] = $post["name"];
-        $DBposts[$id]["Post"] = $post["post"];
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $post = request()->all();
+            $_SESSION['DBposts'][$id]["Name"] = $post["name"];
+            $_SESSION['DBposts'][$id]["Post"] = $post["post"];
+        }
         return to_route("posts.index");
     }
 }
