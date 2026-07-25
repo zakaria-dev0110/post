@@ -17,8 +17,8 @@ class PostController extends Controller
         if (count($_SESSION['DBposts']) == 0) {
             array_push($_SESSION['DBposts'], array(
                 "id" => "0",
-                "Name" => "John",
-                "Post" => "Hello"
+                "Name" => "Enter Your Name",
+                "Post" => "Write Your Post"
             ));
         }    
         return view('index', ["posts" => $_SESSION['DBposts']]);
@@ -50,6 +50,12 @@ class PostController extends Controller
             "Name" => $post["name"],
             "Post" => $post["post"]
         ));
+        return to_route("posts.index");
+    }
+
+    public function delete(){
+        $post = request()->all();
+        unset($_SESSION["DBposts"][$post['id']]);
         return to_route("posts.index");
     }
 }

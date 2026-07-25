@@ -13,6 +13,8 @@ Route::get('/posts/create', [PostController::class, 'create'])->name('posts.crea
 
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store'); // Modified
 
+Route::post('/posts', [PostController::class, 'delete'])->name("posts.delete");
+
 Route::get('/posts/{id}', [PostController::class, 'show'])->name("posts.show"); // Modified
 
 Route::post('/posts/{id}', [PostController::class, 'update'])->name("posts.update"); // Modified

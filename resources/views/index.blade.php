@@ -20,7 +20,10 @@
                 <td class="py-3">
                     <div class="col text-center">
                         <a href="{{ route("posts.show", $post["id"]) }}" type="button" class="btn btn-primary m-1">Show</a>
-                        <button type="button" class="btn btn-danger m-1">Delete</button>
+                        <form method="POST" action="{{ route("posts.delete", array("id" => $post["id"])) }}">
+                            @csrf
+                            <button type="submit" class="btn btn-danger m-1">Delete</button>
+                        </form>
                     </div>
                 </td>
                 </tr>
