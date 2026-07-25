@@ -28,7 +28,7 @@
             </tbody>
         </table>
         <div class="column text-center">
-            <button type="button" class="btn btn-success m-1">Create New Post</button>
+            <a href="{{ route("posts.create") }}" type="button" class="btn btn-success m-1">Create New Post</a>
         </div>
     </div>
 @endsection

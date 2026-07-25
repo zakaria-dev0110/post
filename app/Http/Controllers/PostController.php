@@ -20,8 +20,7 @@ class PostController extends Controller
                 "Name" => "John",
                 "Post" => "Hello"
             ));
-        }
-        
+        }    
         return view('index', ["posts" => $_SESSION['DBposts']]);
     }
 
@@ -31,11 +30,26 @@ class PostController extends Controller
     }
 
     public function update($id){
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $post = request()->all();
-            $_SESSION['DBposts'][$id]["Name"] = $post["name"];
-            $_SESSION['DBposts'][$id]["Post"] = $post["post"];
-        }
+        $post = request()->all();
+        $_SESSION['DBposts'][$id]['id'] = $id;
+        $_SESSION['DBposts'][$id]['Name'] = $post['name'];
+        $_SESSION['DBposts'][$id]['Post'] = $post['post'];
+
+        return to_route("posts.index");
+    }
+
+    public function create() { // Modified
+        $newID = count($_SESSION["DBposts"]);
+        return view("create", ["id" => $newID]);
+    }
+
+    public function store(){ // Modified
+        $post = request()->all();
+        array_push($_SESSION['DBposts'], array(
+            "id" => $post["id"],
+            "Name" => $post["name"],
+            "Post" => $post["post"]
+        ));
         return to_route("posts.index");
     }
 }
